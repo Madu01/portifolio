@@ -1,0 +1,659 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #222;
+  margin: 0;
+}
+
+/* Fundo de cada seção */
+section#intro {
+  background: url('../img/fundoIntro.png') center/cover no-repeat fixed;
+  min-height: 100vh;
+}
+
+section#trabalhos {
+  background: url('../img/fundoTrabalhos.png') center/cover no-repeat fixed;
+  min-height: 100vh;
+}
+
+section#sobre {
+  background: url('../img/fundoIntro.png') center/cover no-repeat fixed;
+  min-height: 100vh;
+}
+
+section#contato {
+  background: url('../img/fundoContato.png') center/cover no-repeat fixed;
+  min-height: 100vh;
+}
+
+
+/* CONTAINER GLOBAL */
+
+.container{
+
+width:100%;
+max-width:1400px;
+
+margin:auto;
+
+padding-left:55px;
+padding-right:230px; /* margem do meio 299*/
+
+}
+
+
+/* NAVBAR MENU SUPERIOR (MOBILE)*/
+
+
+/* animação de entrada: desce do topo */
+@keyframes topbarDrop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* conteúdo interno centralizado */
+.headerContent{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 45px; 
+  height: 100%;
+}
+
+.logoBox{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 21px;
+  height: 100%;
+}
+
+.logoBox img{
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+
+/* MENU MOBILE */
+
+.menuMobile {
+    width: 44px;              
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+    background: transparent;
+    
+    /* Ícone como background */
+    background-image: url('../img/iconMenu.png');
+    background-size: 60%;        /* tamanho do ícone dentro do círculo */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.menuMobile:hover {
+    background-color: #c5c5c5; 
+}
+
+.closeMenu {
+    width: 44px;              
+    height: 44px;
+    border-radius: 50%;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    /* Ícone como background */
+    background-image: url('../img/iconFechar.png');
+    background-size: 60%;       
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+
+.closeMenu:hover {
+    background-color: #c5c5c5;
+}
+
+
+/* MENU LATERAL */
+
+.sideNav{
+
+position:fixed;
+
+right:55px;
+top:50%;
+
+transform:translateY(-50%);
+
+display:flex;
+flex-direction:column;
+
+gap:30px;
+
+font-size:22px;
+
+z-index:500; 
+
+}
+
+.sideItem{
+
+text-decoration:none;
+color:#777;
+
+position:relative;
+
+}
+
+.sideItem:hover{
+color:#000000; 
+}
+
+.sideItem.active{
+
+color:black;
+font-weight:600;
+
+}
+
+.sideItem{
+position:relative;
+display:inline-block;
+}
+
+.sideItem.active::after{
+
+content:"";
+position:absolute;
+
+left:0;
+bottom:-8px;
+
+width:100%;
+height:3px;
+
+background:#FBFF00;
+
+}
+
+/* Nav superior direita */
+.topRightNav {
+  position: fixed;
+  top: 20px;        /* distância do topo */
+  right: 40px;      /* distância da direita */
+  z-index: 600;     /* acima do conteúdo e sideNav */
+  display: flex;
+  align-items: center;
+}
+
+
+/* MOBILE NAV */
+.mobileNav{
+
+position:fixed;
+
+top:0;
+right:-50%;
+
+width:50%;
+height:100vh;
+
+background: #eaeaea;
+
+display:flex;
+flex-direction:column;
+
+gap:35px;
+
+padding-top:120px;
+padding-left:40px;
+padding-right:40px;
+
+transition:0.4s;
+
+z-index:300;
+
+}
+
+.mobileNav.open{
+
+right:0;
+box-shadow:-25px 0px 60px rgba(0,0,0,0.25); /* SOMBRA NA BORDA ESQUERDA */
+
+}
+
+/* OPCOES MENU MOBILE */
+
+.mobileNav .sideItem{
+
+display:block;
+width:100%;
+
+font-size:22px;
+
+color:#777;
+
+position:relative;
+
+font-family:'Open Sans';
+
+padding-bottom:35px;
+
+}
+
+.mobileNav .sideItem:hover{
+color:#000000; 
+}
+
+.mobileNav a.active{
+
+color:black;
+font-weight:600;
+
+}
+
+.mobileNav a.active::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:20px;
+
+width:75%;
+height:3px;
+
+background:#FBFF00;
+
+}
+
+
+
+/* SECTIONS */
+
+.section{
+
+min-height:100vh;
+
+display:flex;
+align-items:center;
+
+position:relative;
+
+}
+
+
+
+/* TABS */
+
+.tabs{
+
+display:flex;
+gap:60px;
+
+border-bottom:1px solid black;
+
+margin-bottom:5px;
+
+}
+
+.tab{
+
+font-size:18px;
+
+cursor:pointer;
+
+position:relative;
+
+padding-bottom:5px;
+color:#6d6d6d;
+
+}
+
+.tab:hover{
+color:#000000; 
+}
+
+.tab.active{
+
+border-bottom:3px solid black;
+font-weight:600;
+font-size:18px;
+color:#000000;
+
+}
+
+.tabStar{
+
+width:18px;
+
+position:absolute;
+
+top:-26px;
+left:50%;
+
+transform:translateX(-50%);
+
+opacity:0;
+
+}
+
+.tab.active .tabStar{
+
+opacity:1;
+
+}
+
+/* Animação suave da estrela */
+@keyframes estrelaBounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-6px); /* sobe só um pouco */
+  }
+}
+
+.tabStar {
+width: 18px;
+position: absolute;
+top: -26px;
+left: 50%;
+transform: translateX(-50%);
+opacity: 0;
+animation: estrelaBounce 1.3s ease-in-out infinite; /* tempo para velocidade da movimentacao */
+animation-play-state: paused; /* começa pausada, ativa só no active */
+}
+
+.tab.active .tabStar {
+opacity: 1;
+animation-play-state: running; /* só anima a estrela do tab ativo */
+}
+
+
+
+/* TEXTO TAB */
+
+.tabText{
+position:absolute;
+
+font-size: clamp(24px, 5vw, 50px);
+
+line-height:1.4;
+font-family:'Rufina',serif;
+
+text-align:center;
+
+width:100%;
+max-width:1100px;
+
+transition:transform .55s cubic-bezier(.77,0,.18,1);
+}
+
+/* AREA DO TEXTO TAB*/
+
+.tabTextWrapper{
+
+position:relative;
+
+width: 95%;         
+max-width: 1200px;
+margin:auto;
+height:445px;
+
+overflow:hidden;
+
+display:flex;
+align-items:flex-start;
+justify-content:center;
+padding-top: 40px;
+
+}
+
+
+
+/* SETA */
+
+.scrollIndicator{
+
+position:absolute;
+
+bottom:0;
+left:0;
+
+width:100%;
+
+height:140px; /* altura da área preta */
+
+/*background:black;*/
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+}
+
+#intro{
+padding-bottom:20px;
+}
+
+.circle{
+
+width:70px;
+height:70px;
+
+border-radius:50%;
+
+background:#FBFF00;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+
+overflow:hidden;
+cursor:pointer; /* permitir clique */
+
+
+transition:0.3s; /* sem isso nao tem como fazer hover */
+
+}
+
+.circle:hover{
+background:#EEF219; /* se no .circle a cor esta com background nesse tambem devera */
+}
+
+.arrow{
+
+width:22px;
+
+animation:arrowMove 1.6s infinite;
+
+}
+
+@keyframes arrowMove{
+
+0%{
+transform:translateY(-10px);
+opacity:0;
+}
+
+40%{
+opacity:1;
+}
+
+100%{
+transform:translateY(15px);
+opacity:0;
+}
+
+}
+
+
+
+/* CARD */
+
+.workCard{
+
+width:100%;
+height:520px;
+
+border-radius:18px;
+
+border:2px solid white;
+
+position:relative;
+
+box-shadow:
+0px 30px 60px rgba(0,0,0,0.15);
+
+}
+
+
+/* BORDA ANIMADA CARD*/
+
+.workCard::before{
+
+content:"";
+
+position:absolute;
+
+inset:-2px;
+
+border-radius:18px;
+
+padding:2px;
+
+background:linear-gradient(
+90deg,
+transparent,
+#e5e5e5,
+#FBFF00
+);
+
+background-size:200% 100%;
+
+animation:borderRun 3s linear infinite;
+
+mask:
+linear-gradient(#000 0 0) content-box,
+linear-gradient(#000 0 0);
+
+mask-composite:exclude;
+
+}
+
+@keyframes borderRun{
+
+0%{
+background-position:0%;
+}
+
+100%{
+background-position:200%;
+}
+
+}
+
+
+
+/* RESPONSIVO */
+
+@media (max-width:900px){
+
+.sideNav{
+display:none;
+}
+
+.topRightNav {
+display: none;
+}
+
+.menuMobile{
+display:block;
+}
+
+.mobileNav{
+display:block;
+z-index: 600;
+}
+
+.topbar {
+display: flex;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 60px;
+z-index: 500;
+background: rgba(244, 244, 244, 0.85);
+backdrop-filter: blur(8px);
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16);
+align-items: center;
+justify-content: space-between;
+padding: 0 20px;
+animation: topbarDrop 0.6s ease-out forwards; /* chama a animação global */
+}
+
+.container{
+
+padding-left:40px;
+padding-right:40px;
+
+}
+
+.tabs{
+gap:30px;
+}
+
+.tabText{
+font-size: clamp(22px, 6vw, 32px);
+}
+
+.tabTextWrapper{
+height:auto;
+min-height:330px;
+}
+
+}
+
+
+
+@media (min-width:901px){
+
+.mobileNav{
+display:none;
+}
+
+.topbar {
+display: none;
+}
+
+.menuMobile{
+display:none;
+}
+
+}
