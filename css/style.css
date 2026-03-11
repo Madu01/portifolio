@@ -20,9 +20,17 @@ section#intro {
   min-height: 100vh;
 }
 
-section#trabalhos {
-  background: url('../img/fundoTrabalhos.png') center/cover no-repeat fixed;
-  min-height: 100vh;
+section#trabalhos{
+min-height:100vh;
+
+background:
+linear-gradient(
+90deg,
+#3d3d3d 0%,
+#6b6b6b 50%,
+#bfbfbf 100%
+);
+
 }
 
 section#sobre {
@@ -141,7 +149,7 @@ padding-right:230px; /* margem do meio 299*/
 
 position:fixed;
 
-right:55px;
+right:50px;
 top:50%;
 
 transform:translateY(-50%);
@@ -519,6 +527,7 @@ opacity:0;
 .workCard{
 
 width:100%;
+min-width:0;
 height:520px;
 
 border-radius:18px;
@@ -529,6 +538,130 @@ position:relative;
 
 box-shadow:
 0px 30px 60px rgba(0,0,0,0.15);
+
+}
+
+/* GRID DOS TRABALHOS */
+
+.worksGrid{
+
+display:grid;
+width:100%;
+
+grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));
+
+gap:clamp(20px,3vw,40px);
+
+margin-top:40px;
+
+}
+
+
+/* TAMANHOS */
+
+.workSmall{
+height:auto;
+padding:25px;
+}
+
+.workLarge{
+
+grid-column:1 / -1;
+
+height:auto;
+
+padding:25px;
+
+}
+
+
+/* HEADER */
+
+.cardHeader{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+margin-bottom:20px;
+
+}
+
+.cardHeader h3{
+
+font-size:clamp(18px,1.6vw,22px);
+font-weight:600;
+color:white;
+
+}
+
+
+/* TAG */
+
+.tag{
+
+font-size:clamp(12px,1vw,14px);
+
+padding:6px 14px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,0.15);
+
+color:white;
+
+}
+
+
+/* AREA DE MIDIA */
+
+.cardMedia{
+
+width:100%;
+max-width:100%;
+
+height:clamp(160px,20vw,200px);
+
+background:#FBFF00;
+
+border-radius:6px;
+
+}
+
+
+/* GRID CARD GRANDE */
+
+.mediaGrid{
+
+display:grid;
+
+/* fica lado a lado enquanto houver espaço */
+grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+
+gap:clamp(16px,3vw,30px);
+
+margin-bottom:18px;
+
+}
+
+.mediaGrid .cardMedia{
+height:200px;
+}
+
+
+/* DESCRIÇÃO */
+
+.cardDesc{
+
+color:white;
+
+font-size:clamp(14px,1.1vw,16px);
+
+line-height:1.6;
+
+/* impede texto de sair do card */
+max-width:100%;
+word-break:break-word;
 
 }
 
@@ -636,6 +769,14 @@ font-size: clamp(22px, 6vw, 32px);
 .tabTextWrapper{
 height:auto;
 min-height:330px;
+}
+
+.worksGrid{
+grid-template-columns:1fr;
+}
+
+.mediaGrid{
+grid-template-columns:1fr;
 }
 
 }
