@@ -24,8 +24,11 @@
 <div class="container headerContent">
 
 <div class="logoBox">
-<img src="img/iconEstrela.png">
-<span>Maria Eduarda</span>
+  <img src="img/iconEstrela.png" alt="Estrela">
+  <div class="name">
+    <span class="first-name">Maria</span>
+    <span class="last-name">Eduarda</span>
+  </div>
 </div>
 
 <div class="menuMobile" id="menuBtn"></div>
@@ -63,7 +66,10 @@
 <nav class="topRightNav">
   <div class="logoBox">
     <img src="img/iconEstrela.png" alt="Estrela">
-    <span>Maria Eduarda</span>
+    <div class="name">
+      <span class="first-name">Maria</span>
+      <span class="last-name">Eduarda</span>
+    </div>
   </div>
 </nav>
 
@@ -79,7 +85,7 @@
 <div class="tabs">
 
 <div class="tab active"
-data-text="Atuo em UX/UI com foco no usuário, estruturando soluções que resolvem problemas reais por meio de pesquisa, organização de fluxos e interfaces claras.">
+data-text="Atuo em <strong>UX/UI</strong> com foco no <strong>usuário</strong>, estruturando soluções que resolvem <strong>problemas reais</strong> por meio de <strong>pesquisa</strong>, organização de <strong>fluxos</strong> e <strong>interfaces claras</strong>.">
 
 <img src="img/estrelaPreta.png" class="tabStar">
 
@@ -112,7 +118,7 @@ data-text="Transformo ideias em experiências digitais simples, intuitivas e foc
 <div class="tabTextWrapper">
 
 <p class="tabText">
-Atuo em UX/UI com foco no usuário, estruturando soluções que resolvem problemas reais por meio de pesquisa, organização de fluxos e interfaces claras.
+Atuo em <strong>UX/UI</strong> com foco no <strong>usuário</strong>, estruturando soluções que resolvem <strong>problemas reais</strong> por meio de <strong>pesquisa</strong>, organização de <strong>fluxos</strong> e <strong>interfaces claras</strong>.
 </p>
 
 </div>
@@ -136,10 +142,18 @@ Atuo em UX/UI com foco no usuário, estruturando soluções que resolvem problem
 
 <div class="container">
 
+<div class="workFilters">
+
+<button class="filterBtn active" data-filter="all">Todos</button>
+<button class="filterBtn" data-filter="projeto">Projetos</button>
+<button class="filterBtn" data-filter="componente">Componentes</button>
+
+</div>
+
 <div class="worksStack">
 
 <!-- CARD 1 -->
-<div class="workCard stackCard">
+<div class="workCard stackCard" data-type="projeto">
 
 <div class="cardHeader">
 <h3>Nome do Projeto</h3>
@@ -160,7 +174,7 @@ DescriçãotextotextotextoDescriçãotextotextotextoDescriçãotextotextotexto
 
 
 <!-- CARD 2 -->
-<div class="workCard stackCard">
+<div class="workCard stackCard" data-type="projeto">
 
 <div class="cardHeader">
 <h3>Nome do Projeto</h3>
@@ -181,7 +195,7 @@ DescriçãotextotextotextoDescriçãotextotextotextoDescriçãotextotextotexto
 
 
 <!-- CARD 3 -->
-<div class="workCard stackCard">
+<div class="workCard stackCard" data-type="projeto">
 
 <div class="cardHeader">
 <h3>Nome do Projeto</h3>
@@ -197,6 +211,69 @@ DescriçãotextotextotextoDescriçãotextotextotextoDescriçãotextotextotexto
 </p>
 
 <a class="btnProject">Ver Projeto</a>
+
+</div>
+
+
+<!-- COMPONENTE 1 -->
+<div class="workCard stackCard" data-type="componente">
+
+<div class="cardHeader">
+<h3>Nome do Componente</h3>
+<span class="tag">UI Component</span>
+</div>
+
+<div class="cardMedia">
+<img src="img/component1.png">
+</div>
+
+<p class="cardDesc">
+Componente com animação e microinteração criado para design system.
+</p>
+
+<a class="btnProject">Ver Componente</a>
+
+</div>
+
+
+<!-- COMPONENTE 2 -->
+<div class="workCard stackCard" data-type="componente">
+
+<div class="cardHeader">
+<h3>Nome do Componente</h3>
+<span class="tag">UI Component</span>
+</div>
+
+<div class="cardMedia">
+<img src="img/component2.png">
+</div>
+
+<p class="cardDesc">
+Componente com animação e microinteração criado para design system.
+</p>
+
+<a class="btnProject">Ver Componente</a>
+
+</div>
+
+
+<!-- COMPONENTE 3 -->
+<div class="workCard stackCard" data-type="componente">
+
+<div class="cardHeader">
+<h3>Nome do Componente</h3>
+<span class="tag">UI Component</span>
+</div>
+
+<div class="cardMedia">
+<img src="img/component3.png">
+</div>
+
+<p class="cardDesc">
+Componente com animação e microinteração criado para design system.
+</p>
+
+<a class="btnProject">Ver Componente</a>
 
 </div>
 

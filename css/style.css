@@ -16,20 +16,32 @@ body {
 
 /* Fundo de cada seção */
 section#intro {
-  background: url('../img/fundoIntro.png') center/cover no-repeat fixed;
   min-height: 100vh;
+  position: relative;
+  /* Camada 1: Brilho superior esquerdo */
+  /* Camada 2: Brilho inferior direito */
+  /* Camada 3: Cor de fundo base (cinza) */
+  background: 
+    radial-gradient(circle at 0% 0%, rgb(255, 255, 255) 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, rgb(255, 255, 255) 0%, transparent 50%),
+    #e9e9e9; 
+  
+  /* Garantir que o fundo não repita e cubra tudo */
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 
 section#trabalhos{
 
-padding-top:150px;
+padding-top:80px;
 padding-bottom:100px;
 
 background:
 linear-gradient(
 90deg,
-#3d3d3d 0%,
-#6b6b6b 50%,
+#161616 0%,
+#565656 50%,
 #bfbfbf 100%
 );
 
@@ -56,7 +68,7 @@ max-width:1400px;
 margin:auto;
 
 padding-left:55px;
-padding-right:230px; /* margem do meio 299*/
+padding-right:200px; /* margem do meio 299*/
 
 }
 
@@ -86,19 +98,37 @@ padding-right:230px; /* margem do meio 299*/
   height: 100%;
 }
 
-.logoBox{
+
+.logoBox {
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* alinha a estrela com o topo do nome */
   gap: 10px;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 600;
-  font-size: 21px;
-  height: 100%;
+  font-size: 18px;
+  color: #2a2a2a;
 }
 
-.logoBox img{
+.logoBox img {
   width: 32px;
   height: 32px;
   object-fit: contain;
+}
+
+.name {
+  display: flex;
+  flex-direction: column; /* coloca Eduarda abaixo de Maria */
+  line-height: 1.2;
+}
+
+.name .first-name {
+  display: block;
+}
+
+.name .last-name {
+  display: block;
+  font-weight: 400; /* opcional: menos pesado */
+  font-size: 16px; /* opcional: menor que Maria */
 }
 
 
@@ -161,7 +191,7 @@ flex-direction:column;
 
 gap:30px;
 
-font-size:22px;
+font-size:18px;
 
 z-index:500; 
 
@@ -321,9 +351,9 @@ position:relative;
 .tabs{
 
 display:flex;
-gap:60px;
+gap:30px;
 
-border-bottom:1px solid black;
+border-bottom:1px solid #cfcfcf;
 
 margin-bottom:5px;
 
@@ -409,10 +439,11 @@ animation-play-state: running; /* só anima a estrela do tab ativo */
 .tabText{
 position:absolute;
 
-font-size: clamp(24px, 5vw, 50px);
+font-size: clamp(24px, 5vw, 45px);
 
 line-height:1.4;
 font-family:'Rufina',serif;
+color:#656565;
 
 text-align:center;
 
@@ -420,6 +451,7 @@ width:100%;
 max-width:1100px;
 
 transition:transform .55s cubic-bezier(.77,0,.18,1);
+
 }
 
 /* AREA DO TEXTO TAB*/
@@ -443,6 +475,12 @@ padding-top: 40px;
 }
 
 
+.tabText strong{
+font-weight:700;
+color:#000;
+}
+
+
 
 /* SETA */
 
@@ -457,7 +495,12 @@ width:100%;
 
 height:140px; /* altura da área preta */
 
-/*background:black;*/
+background:linear-gradient(
+  90deg,
+#161616 0%,
+#565656 50%,
+#bfbfbf 100%
+);
 
 display:flex;
 align-items:center;
@@ -532,7 +575,7 @@ width:100%;
 
 border-radius:18px;
 
-border:2px solid white;
+border:1px solid #ffffff;
 
 position:relative;
 
@@ -594,6 +637,8 @@ box-shadow:
 0 25px 60px rgba(0,0,0,0.35),
 0 0 25px rgba(251,255,0,0.35);
 
+border:1px solid #EEF219;
+
 }
 
 .workCard:hover::after{
@@ -602,42 +647,33 @@ opacity:1;
 
 }
 
-.workCard:active{
-
-transform:scale(.97);
-
-box-shadow:
-0 15px 40px rgba(0,0,0,0.35),
-0 0 40px rgba(251, 255, 0, 0.55);
-
-}
 
 
-/* BORDA ANIMADA CARD*/
-
-/* BORDA ANIMADA CARD */
+/*
+ANIMACAO QUE DEU CERTO NAS BORDAS:
 
 .workCard::before{
 
 content:"";
+
 position:absolute;
 
 inset:-2px;
+
 border-radius:18px;
+
 padding:2px;
 
 background:linear-gradient(
 90deg,
-transparent 0%,
-transparent 60%,
-#FBFF00 70%,
-transparent 80%,
-transparent 100%
+transparent,
+#e5e5e5,
+#FBFF00
 );
 
-background-size:900%;
+background-size:200% 100%;
 
-animation:borderRun 2s linear infinite;
+animation:borderRun 3s linear infinite;
 
 mask:
 linear-gradient(#000 0 0) content-box,
@@ -645,22 +681,21 @@ linear-gradient(#000 0 0);
 
 mask-composite:exclude;
 
-z-index:3;
-pointer-events:none;
-
 }
 
 @keyframes borderRun{
 
 0%{
-background-position:30%;
+background-position:0%;
 }
 
 100%{
-background-position:130%;
+background-position:200%;
 }
 
 }
+
+*/
 
 
 /* HEADER */
@@ -702,7 +737,7 @@ backdrop-filter:blur(4px);
 }
 
 
-/* IMAGEM GRANDE (área verde do design) */
+/* IMAGEM GRANDE */
 
 .cardMedia{
 
@@ -724,7 +759,14 @@ width:100%;
 height:100%;
 
 object-fit:cover;
+transition: transform 0.35s ease; /* suavidade do zoom */
 
+}
+
+/* Zoom ao passar o mouse ou clicar no card */
+.workCard:hover .cardMedia img,
+.workCard:active .cardMedia img {
+  transform: scale(1.05); /* aumenta 5% a imagem */
 }
 
 
@@ -775,6 +817,7 @@ transition:.25s;
 
 .btnProject:hover{
 transform:translateY(-2px);
+background:#fbff00d6;
 }
 
 .worksStack{
@@ -789,6 +832,51 @@ margin-top:1px;
 margin-bottom:1px;
 
 align-items:start;
+
+}
+
+/* FILTROS PARA CARDS */
+/* FILTROS */
+
+.workFilters{
+
+display:flex;
+gap:6px;
+margin-bottom:40px;
+
+}
+
+.filterBtn{
+
+padding:8px 18px;
+
+border-radius:8px;
+
+border:2px solid #fbff0000;
+
+background:transparent;
+
+color:#d4d4d4;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.25s;
+
+}
+
+.filterBtn:hover{
+
+background:#ababab46;
+color:rgb(255, 255, 255);
+
+}
+
+.filterBtn.active{
+
+background:#ababab46;
+color:rgb(255, 255, 255);
 
 }
 

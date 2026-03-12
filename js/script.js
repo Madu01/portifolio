@@ -18,7 +18,7 @@ const newContent = tab.dataset.text
 
 const newText = document.createElement("p")
 newText.className="tabText"
-newText.innerText=newContent
+newText.innerHTML = newContent
 
 wrapper.appendChild(newText)
 
@@ -198,3 +198,35 @@ behavior: "smooth"
 
 })
 
+/* FILTRO CARDS */
+const filterBtns = document.querySelectorAll(".filterBtn");
+const cards = document.querySelectorAll(".workCard");
+
+filterBtns.forEach(btn => {
+
+btn.addEventListener("click", () => {
+
+filterBtns.forEach(b => b.classList.remove("active"));
+btn.classList.add("active");
+
+const filter = btn.dataset.filter;
+
+cards.forEach(card => {
+
+const type = card.dataset.type;
+
+if(filter === "all" || type === filter){
+
+card.style.display = "flex";
+
+}else{
+
+card.style.display = "none";
+
+}
+
+});
+
+});
+
+});
