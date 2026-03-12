@@ -21,7 +21,9 @@ section#intro {
 }
 
 section#trabalhos{
-min-height:100vh;
+
+padding-top:150px;
+padding-bottom:100px;
 
 background:
 linear-gradient(
@@ -527,8 +529,6 @@ opacity:0;
 .workCard{
 
 width:100%;
-min-width:0;
-height:520px;
 
 border-radius:18px;
 
@@ -536,135 +536,77 @@ border:2px solid white;
 
 position:relative;
 
-box-shadow:
-0px 30px 60px rgba(0,0,0,0.15);
+padding:26px;
 
-}
+background:rgba(255,255,255,0.05);
 
-/* GRID DOS TRABALHOS */
+backdrop-filter:blur(6px);
 
-.worksGrid{
-
-display:grid;
-width:100%;
-
-grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));
-
-gap:clamp(20px,3vw,40px);
-
-margin-top:40px;
-
-}
-
-
-/* TAMANHOS */
-
-.workSmall{
-height:auto;
-padding:25px;
-}
-
-.workLarge{
-
-grid-column:1 / -1;
-
-height:auto;
-
-padding:25px;
-
-}
-
-
-/* HEADER */
-
-.cardHeader{
+box-shadow:0 20px 60px rgba(0,0,0,0.25);
 
 display:flex;
-justify-content:space-between;
-align-items:center;
+flex-direction:column;
 
-margin-bottom:20px;
+transition:
+transform .35s ease,
+box-shadow .35s ease;
 
-}
+cursor:pointer;
 
-.cardHeader h3{
+overflow:hidden;
 
-font-size:clamp(18px,1.6vw,22px);
-font-weight:600;
-color:white;
-
-}
-
-
-/* TAG */
-
-.tag{
-
-font-size:clamp(12px,1vw,14px);
-
-padding:6px 14px;
-
-border-radius:20px;
-
-background:rgba(255,255,255,0.15);
-
-color:white;
+height:auto;
 
 }
 
+.workCard::after{
 
-/* AREA DE MIDIA */
+content:"";
 
-.cardMedia{
+position:absolute;
 
-width:100%;
-max-width:100%;
+inset:0;
 
-height:clamp(160px,20vw,200px);
+background:radial-gradient(
+circle at center,
+rgba(255,255,255,0.18),
+rgba(255,255,255,0.08) 40%,
+transparent 70%
+);
 
-background:#FBFF00;
+opacity:0;
 
-border-radius:6px;
+transition:opacity .35s ease;
 
-}
-
-
-/* GRID CARD GRANDE */
-
-.mediaGrid{
-
-display:grid;
-
-/* fica lado a lado enquanto houver espaço */
-grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
-
-gap:clamp(16px,3vw,30px);
-
-margin-bottom:18px;
+pointer-events:none;
 
 }
 
-.mediaGrid .cardMedia{
-height:200px;
-}
+.workCard:hover{
 
+transform:translateY(-6px);
 
-/* DESCRIÇÃO */
-
-.cardDesc{
-
-color:white;
-
-font-size:clamp(14px,1.1vw,16px);
-
-line-height:1.6;
-
-/* impede texto de sair do card */
-max-width:100%;
-word-break:break-word;
+box-shadow:
+0 25px 60px rgba(0,0,0,0.35),
+0 0 25px rgba(251,255,0,0.35);
 
 }
 
+.workCard:hover::after{
+
+opacity:1;
+
+}
+
+.workCard:active{
+
+transform:scale(.97);
+
+box-shadow:
+0 15px 40px rgba(0,0,0,0.35),
+0 0 40px rgba(251,255,0,0.55);
+
+}
 
 /* BORDA ANIMADA CARD*/
 
@@ -711,6 +653,135 @@ background-position:200%;
 
 }
 
+
+/* HEADER */
+
+.cardHeader{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+margin-bottom:16px;
+
+}
+
+.cardHeader h3{
+
+font-size:22px;
+font-weight:600;
+color:white;
+
+}
+
+.tag{
+
+font-size:12px;
+font-weight:500;
+
+color:#ffffff;
+
+padding:6px 12px;
+
+
+border-radius:20px;
+
+background:rgba(255,255,255,0.06);
+
+backdrop-filter:blur(4px);
+
+}
+
+
+/* IMAGEM GRANDE (área verde do design) */
+
+.cardMedia{
+
+width:100%;
+
+height:360px;
+
+border-radius:6px;
+
+overflow:hidden;
+
+margin-bottom:18px;
+
+}
+
+.cardMedia img{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+}
+
+
+/* TEXTO */
+
+.cardDesc{
+
+font-size:13px;
+line-height:1.6;
+
+color:#e5e5e5;
+
+margin-top:6px;
+max-width:70ch;
+
+white-space:normal;
+word-break:break-word;
+overflow-wrap:break-word;
+
+}
+
+
+/* BOTÃO */
+
+.btnProject{
+
+align-self:center;
+
+margin-top:20px;
+
+padding:10px 38px;
+
+background:#FBFF00;
+
+border-radius:40px;
+
+font-weight:600;
+
+font-size:14px;
+
+cursor:pointer;
+
+box-shadow:0 6px 18px rgba(0,0,0,0.25);
+
+transition:.25s;
+
+}
+
+.btnProject:hover{
+transform:translateY(-2px);
+}
+
+.worksStack{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:60px;
+
+margin-top:1px;
+margin-bottom:1px;
+
+align-items:start;
+
+}
 
 
 /* RESPONSIVO */
@@ -771,13 +842,19 @@ height:auto;
 min-height:330px;
 }
 
-.worksGrid{
-grid-template-columns:1fr;
+
+.cardMedia{
+
+height:clamp(160px,45vw,260px);
+
 }
 
-.mediaGrid{
+.worksStack{
+
 grid-template-columns:1fr;
+
 }
+
 
 }
 
