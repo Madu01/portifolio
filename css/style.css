@@ -538,7 +538,7 @@ position:relative;
 
 padding:26px;
 
-background:rgba(255,255,255,0.05);
+background:rgba(255,255,255,0.03);
 
 backdrop-filter:blur(6px);
 
@@ -553,9 +553,11 @@ box-shadow .35s ease;
 
 cursor:pointer;
 
-overflow:hidden;
+overflow:visible;
 
 height:auto;
+
+z-index:1;
 
 }
 
@@ -565,7 +567,7 @@ content:"";
 
 position:absolute;
 
-inset:0;
+inset:3px;
 
 background:radial-gradient(
 circle at center,
@@ -579,6 +581,8 @@ opacity:0;
 transition:opacity .35s ease;
 
 pointer-events:none;
+
+z-index:2;
 
 }
 
@@ -604,34 +608,36 @@ transform:scale(.97);
 
 box-shadow:
 0 15px 40px rgba(0,0,0,0.35),
-0 0 40px rgba(251,255,0,0.55);
+0 0 40px rgba(251, 255, 0, 0.55);
 
 }
 
+
 /* BORDA ANIMADA CARD*/
+
+/* BORDA ANIMADA CARD */
 
 .workCard::before{
 
 content:"";
-
 position:absolute;
 
 inset:-2px;
-
 border-radius:18px;
-
 padding:2px;
 
 background:linear-gradient(
 90deg,
-transparent,
-#e5e5e5,
-#FBFF00
+transparent 0%,
+transparent 60%,
+#FBFF00 70%,
+transparent 80%,
+transparent 100%
 );
 
-background-size:200% 100%;
+background-size:900%;
 
-animation:borderRun 3s linear infinite;
+animation:borderRun 2s linear infinite;
 
 mask:
 linear-gradient(#000 0 0) content-box,
@@ -639,16 +645,19 @@ linear-gradient(#000 0 0);
 
 mask-composite:exclude;
 
+z-index:3;
+pointer-events:none;
+
 }
 
 @keyframes borderRun{
 
 0%{
-background-position:0%;
+background-position:30%;
 }
 
 100%{
-background-position:200%;
+background-position:130%;
 }
 
 }
