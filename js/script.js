@@ -1,232 +1,204 @@
-/*  TAB */
-const tabs = document.querySelectorAll(".tab")
-const wrapper = document.querySelector(".tabTextWrapper")
+/*====================================================
+MENU MOBILE
+====================================================*/
 
-let currentText = document.querySelector(".tabText")
-let currentIndex = 0
+const menuBtn = document.getElementById("menuBtn");
+const mobileNav = document.getElementById("mobileNav");
+const closeMenu = document.getElementById("closeMenu");
 
-tabs.forEach((tab,index)=>{
+menuBtn.addEventListener("click", () => {
+    mobileNav.classList.add("open");
+});
 
-tab.addEventListener("click",()=>{
+closeMenu.addEventListener("click", () => {
+    mobileNav.classList.remove("open");
+});
 
-if(index === currentIndex) return
 
-tabs.forEach(t=>t.classList.remove("active"))
-tab.classList.add("active")
+/*====================================================
+MENU ATIVO PELO CLIQUE
+====================================================*/
 
-const newContent = tab.dataset.text
+const navLinks = document.querySelectorAll(".navLink");
 
-const newText = document.createElement("p")
-newText.className="tabText"
-newText.innerHTML = newContent
+navLinks.forEach(link => {
 
-wrapper.appendChild(newText)
+    link.addEventListener("click", () => {
 
+        navLinks.forEach(item => {
+            item.classList.remove("active");
+        });
 
-/* DEFINIR DIREÇÃO */
+        link.classList.add("active");
 
-let direction
-
-if(index > currentIndex){
-
-direction="right"
-
-/* novo vem da direita */
-
-newText.style.transform="translateX(100%)"
-
-}else{
-
-direction="left"
-
-/* novo vem da esquerda */
-
-newText.style.transform="translateX(-100%)"
-
-}
-
-
-/* ANIMAÇÃO */
-
-requestAnimationFrame(()=>{
-
-newText.style.transform="translateX(0)"
-
-if(direction==="right"){
-
-currentText.style.transform="translateX(-100%)"
-
-}else{
-
-currentText.style.transform="translateX(100%)"
-
-}
-
-})
-
-
-/* LIMPAR */
-
-setTimeout(()=>{
-
-currentText.remove()
-
-currentText=newText
-
-currentIndex=index
-
-},550)
-
-})
-
-})
-
-/* ============================================================= */
-
-
-/* MENU MOBILE */
-
-const menuBtn = document.getElementById("menuBtn")
-const mobileNav = document.getElementById("mobileNav")
-const closeMenu = document.getElementById("closeMenu")
-
-menuBtn.addEventListener("click",()=>{
-
-mobileNav.classList.add("open")
-
-})
-
-closeMenu.addEventListener("click",()=>{
-
-mobileNav.classList.remove("open")
-
-})
-
-
-
-/* FECHAR MENU AO CLICAR */
-
-document.querySelectorAll(".mobileNav a").forEach(link=>{
-
-link.addEventListener("click",()=>{
-
-mobileNav.classList.remove("open")
-menuBtn.src="img/iconMenu.png"
-aberto=false
-
-})
-
-})
-
-
-
-/* SCROLL SPY + NAVEGAÇÃO */
-
-const sections = document.querySelectorAll("section")
-
-const navLinks = document.querySelectorAll(".sideItem")
-const mobileLinks = document.querySelectorAll(".mobileNav a")
-
-function atualizarMenu(){
-
-let current=""
-
-sections.forEach(section=>{
-
-const top = section.offsetTop - 200
-
-if(scrollY >= top){
-
-current = section.getAttribute("id")
-
-}
-
-})
-
-
-navLinks.forEach(link=>{
-
-link.classList.remove("active")
-
-if(link.getAttribute("href")==="#"+current){
-
-link.classList.add("active")
-
-}
-
-})
-
-
-mobileLinks.forEach(link=>{
-
-link.classList.remove("active")
-
-if(link.getAttribute("href")==="#"+current){
-
-link.classList.add("active")
-
-}
-
-})
-
-}
-
-window.addEventListener("scroll",atualizarMenu)
-atualizarMenu()
-
-
-/* NAVEGAÇÃO MENU DESKTOP + MOBILE */
-
-document.querySelectorAll('.sideItem, .circle').forEach(link=>{
-
-link.addEventListener('click',function(e){
-
-e.preventDefault()
-
-const id = this.getAttribute('href')
-
-const target = document.querySelector(id)
-
-window.scrollTo({
-
-top: target.offsetTop,
-behavior: "smooth"
-
-})
-
-})
-
-})
-
-/* FILTRO CARDS */
-const filterBtns = document.querySelectorAll(".filterBtn");
-const cards = document.querySelectorAll(".workCard");
-
-filterBtns.forEach(btn => {
-
-btn.addEventListener("click", () => {
-
-filterBtns.forEach(b => b.classList.remove("active"));
-btn.classList.add("active");
-
-const filter = btn.dataset.filter;
-
-cards.forEach(card => {
-
-const type = card.dataset.type;
-
-if(filter === "all" || type === filter){
-
-card.style.display = "flex";
-
-}else{
-
-card.style.display = "none";
-
-}
+    });
 
 });
 
+
+/*====================================================
+REMOVER ATIVO APÓS CHEGAR NA SEÇÃO E NOVO SCROLL
+====================================================*/
+
+let menuScroll = false;
+let scrollEndTimer;
+
+
+navLinks.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.forEach(item => {
+            item.classList.remove("active");
+        });
+
+        link.classList.add("active");
+
+        // marca que o scroll foi causado pelo clique
+        menuScroll = true;
+
+
+        // espera o scroll suave terminar
+        clearTimeout(scrollEndTimer);
+
+        scrollEndTimer = setTimeout(() => {
+
+            menuScroll = false;
+
+        }, 1000);
+
+    });
+
 });
+
+
+window.addEventListener("scroll", () => {
+
+    // ignora o scroll suave causado pelo menu
+    if (menuScroll) return;
+
+
+    // remove no primeiro scroll manual após chegar na seção
+    navLinks.forEach(link => {
+        link.classList.remove("active");
+    });
+
+});
+
+/*====================================================
+FECHAR MENU MOBILE
+====================================================*/
+
+document.querySelectorAll(".mobileItem").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        mobileNav.classList.remove("open");
+
+    });
+
+});
+
+
+/*====================================================
+SCROLL SUAVE
+====================================================*/
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+    link.addEventListener("click", function (e) {
+
+        const href = this.getAttribute("href");
+
+        if (href === "#") return;
+
+        const target = document.querySelector(href);
+
+        if (!target) return;
+
+        e.preventDefault();
+
+        window.scrollTo({
+
+            top: target.offsetTop,
+
+            behavior: "smooth"
+
+        });
+
+    });
+
+});
+
+
+/*====================================================
+HEADER AO ROLAR
+====================================================*/
+
+const header = document.querySelector(".header");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 20) {
+
+        header.classList.add("scrolled");
+
+    } else {
+
+        header.classList.remove("scrolled");
+
+    }
+
+});
+
+/*====================================================
+Scroll ao recaregar página (ponto de inicio)
+====================================================*/
+
+history.scrollRestoration = "manual";
+
+window.addEventListener("load", () => {
+
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "instant"
+    });
+
+});
+
+/*====================================================
+BOTÃO VOLTAR AO TOPO
+====================================================*/
+
+const backToTop = document.getElementById("backToTop");
+const projetos = document.getElementById("projetos");
+
+window.addEventListener("scroll", () => {
+
+    const inicioProjetos = projetos.offsetTop;
+
+    if (window.scrollY >= inicioProjetos) {
+
+        backToTop.classList.add("show");
+
+    } else {
+
+        backToTop.classList.remove("show");
+
+    }
+
+});
+
+
+backToTop.addEventListener("click", () => {
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
 
 });

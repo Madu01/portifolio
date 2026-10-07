@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
 
@@ -8,7 +8,7 @@
 
 <title>Maria Eduarda</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Prata&family=Rufina:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Prata&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/style.css">
 
@@ -17,314 +17,357 @@
 <body>
 
 
-<!-- Topbar para (mobile) -->
+<!-- ================= HEADER ================= -->
 
-<header class="topbar">
+<header class="header">
 
-<div class="container headerContent">
+    <div class="container">
 
-<div class="logoBox">
-  <img src="img/iconEstrela.png" alt="Estrela">
-  <div class="name">
-    <span class="first-name">Maria</span>
-    <span class="last-name">Eduarda</span>
-  </div>
-</div>
+        <div class="headerContainer">
 
-<div class="menuMobile" id="menuBtn"></div>
+            <a href="#intro" class="logoBox navLink">
 
-</div>
+                <img src="img/iconEstrela.png" alt="Logo">
+
+                <div class="name">
+
+                    <span class="first-name">Maria</span>
+                    <span class="last-name">Eduarda</span>
+
+                </div>
+
+            </a>
+
+            <nav class="desktopMenu">
+
+                <a href="#" class="navLink active">Introdução</a>
+
+                <a href="#projetos" class="navLink">Projetos</a>
+
+                <a href="sobre.html">Sobre</a>
+
+                <a href="#contato" class="navLink">Contato</a>
+
+            </nav>
+
+            <div class="menuMobile" id="menuBtn"></div>
+
+        </div>
+
+    </div>
 
 </header>
 
-<!-- Menu mobile -->
+
+<!-- MENU MOBILE -->
 
 <nav class="mobileNav" id="mobileNav">
 
 <div class="closeMenu" id="closeMenu"></div>
 
-<a href="#intro" class="sideItem">Introdução</a>
-<a href="#projetos" class="sideItem">projetos</a>
-<a href="#sobre" class="sideItem">Sobre</a>
-<a href="#contato" class="sideItem">Contato</a>
+<a href="#" class="mobileItem navLink">Introdução</a>
+
+<a href="#projetos" class="mobileItem navLink">Projetos</a>
+
+<a href="sobre.html">Sobre</a>
+
+<a href="#contato" class="mobileItem navLink">Contato</a>
 
 </nav>
 
 
-<!-- Menu lateral (desktop) -->
 
-<nav class="sideNav">
 
-<a href="#intro" class="sideItem active">Introdução</a>
-<a href="#projetos" class="sideItem">projetos</a>
-<a href="#sobre" class="sideItem">Sobre</a>
-<a href="#contato" class="sideItem">Contato</a>
 
-</nav>
 
-<!-- Nav superior direito (desktop) -->
-<nav class="topRightNav">
-  <div class="logoBox">
-    <img src="img/iconEstrela.png" alt="Estrela">
-    <div class="name">
-      <span class="first-name">Maria</span>
-      <span class="last-name">Eduarda</span>
+
+
+<!-- ================= INTRO ================= -->
+
+<section id="intro">
+
+    <div class="container">
+
+        <div class="introContent">
+
+            <h1>
+                Design com propósito,<br>
+                experiência com impacto.
+            </h1>
+
+            <p>
+                Sou UX/UI Designer focada em soluções úteis, acessíveis, intuitivas e centradas no usuário.
+            </p>
+
+        </div>
+
     </div>
-  </div>
-</nav>
-
-
-
-
-<!-- Secoes -->
-
-<section id="intro" class="section">
-
-<div class="container">
-
-<div class="tabs">
-
-<div class="tab active"
-data-text="Atuo em <strong>UX/UI</strong> com foco no <strong>usuário</strong>, estruturando soluções que resolvem <strong>problemas reais</strong> por meio de <strong>pesquisa</strong>, organização de <strong>fluxos</strong> e <strong>interfaces claras</strong>.">
-
-<img src="img/estrelaPreta.png" class="tabStar">
-
-<span>Para Recrutadores</span>
-
-</div>
-
-
-<div class="tab"
-data-text="Estruturo produtos digitais com fluxos claros e decisões de design que facilitam a implementação técnica.">
-
-<img src="img/estrelaPreta.png" class="tabStar">
-
-<span>Engenheiros</span>
-
-</div>
-
-
-<div class="tab"
-data-text="Transformo ideias em experiências digitais simples, intuitivas e focadas nas pessoas.">
-
-<img src="img/estrelaPreta.png" class="tabStar">
-
-<span>Outros</span>
-
-</div>
-
-</div>
-
-<div class="tabTextWrapper">
-
-<p class="tabText">
-Atuo em <strong>UX/UI</strong> com foco no <strong>usuário</strong>, estruturando soluções que resolvem <strong>problemas reais</strong> por meio de <strong>pesquisa</strong>, organização de <strong>fluxos</strong> e <strong>interfaces claras</strong>.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="scrollIndicator">
-
-<a href="#projetos" class="circle">
-<img src="img/seta.png" class="arrow">
-</a>
-
-</div>
 
 </section>
 
 
 
-<section id="projetos" class="section">
-
-<div class="container">
-
-<h1 class="sectionTitle">Projetos</h1>
-
-<div class="workFilters">
-
-<button class="filterBtn active" data-filter="all">Todos</button>
-<button class="filterBtn" data-filter="desktop">Desktop</button>
-<button class="filterBtn" data-filter="mobile">Mobile</button>
-<button class="filterBtn" data-filter="componente">Componentes</button>
-<button class="filterBtn" data-filter="design-system">Design System</button>
-
-</div>
-
-<div class="worksStack">
-
-<!-- CARD 1 -->
-<div class="workCard stackCard" data-type="mobile,desktop">
-
-<div class="cardHeader">
-<h3>Nome do Projeto</h3>
-<span class="tag">Mobile | Desktop</span>
-</div>
-
-<div class="cardMedia">
-<img src="img/proj1.png">
-</div>
-
-<p class="cardDesc">
-DescriçãotextotextotextoDescriçãotextotextotextoDescriçãotextotextotexto
-</p>
-
-<a class="btnProject">Ver Projeto</a>
-
-</div>
 
 
-<!-- CARD 2 -->
-<div class="workCard stackCard" data-type="desktop">
+<!-- ================= PROJETOS ================= -->
 
-<div class="cardHeader">
-<h3>Nome do Projeto</h3>
-<span class="tag">Desktop</span>
-</div>
+<section id="projetos">
 
-<div class="cardMedia">
-<img src="img/proj2.png">
-</div>
+    <div class="container">
 
-<p class="cardDesc">
-DescriçãotextotextotextoDescriçãotextotextotextoDescriçãotextotextotexto
-</p>
+        <div class="projectsContent">
 
-<a class="btnProject">Ver Projeto</a>
+            <div class="projectsScrollButton">
 
-</div>
+                <a href="#projetos" class="scrollProjects">
 
+                    <span>
+                        Ver projetos
+                    </span>
 
-<!-- CARD 3 -->
-<div class="workCard stackCard" data-type="mobile">
+                    <div class="scrollButton">
 
-<div class="cardHeader">
-<h3>Nome do Projeto</h3>
-<span class="tag">Mobile</span>
-</div>
+                        <img src="img/seta.png" alt="Seta">
 
-<div class="cardMedia">
-<img src="img/proj3.png">
-</div>
+                    </div>
 
-<p class="cardDesc">
-DescriçãotextotextotextoDescriçãotextotextotextoDescriçãotextotextotexto
-</p>
+                </a>
 
-<a class="btnProject">Ver Projeto</a>
+            </div>
 
-</div>
+            <!-- <h2>Projetos</h2>-->
 
+            <div class="projectsGrid">
 
-<!-- COMPONENTE 1 -->
-<div class="workCard stackCard" data-type="componente">
+                <!-- CARD DESTAQUE -->
 
-<div class="cardHeader">
-<h3>Nome do Componente</h3>
-<span class="tag">UI Component</span>
-</div>
+                <article class="projectCard featured">
 
-<div class="cardMedia">
-<img src="img/component1.png">
-</div>
+                    <div class="projectImage">
 
-<p class="cardDesc">
-Componente com animação e microinteração criado para design system.
-</p>
+                        <img src="img/t.png" alt="Projeto">
 
-<a class="btnProject">Ver Componente</a>
+                    </div>
 
-</div>
+                    <div class="projectInfo">
 
+                        <h3>Nome do Projeto</h3>
 
-<!-- COMPONENTE 2 -->
-<div class="workCard stackCard" data-type="componente">
+                        <p>
+                            Aplicativo de gerenciamento de finanças.
+                        </p>
 
-<div class="cardHeader">
-<h3>Nome do Componente</h3>
-<span class="tag">UI Component</span>
-</div>
+                        <a href="#" class="projectButton">
+                            Ver Projeto
+                        </a>
 
-<div class="cardMedia">
-<img src="img/component2.png">
-</div>
+                    </div>
 
-<p class="cardDesc">
-Componente com animação e microinteração criado para design system.
-</p>
-
-<a class="btnProject">Ver Componente</a>
-
-</div>
-
-
-<!-- COMPONENTE 3 -->
-<div class="workCard stackCard" data-type="componente">
-
-<div class="cardHeader">
-<h3>Nome do Componente</h3>
-<span class="tag">UI Component</span>
-</div>
-
-<div class="cardMedia">
-<img src="img/component3.png">
-</div>
-
-<p class="cardDesc">
-Componente com animação e microinteração criado para design system.
-</p>
-
-<a class="btnProject">Ver Componente</a>
-
-</div>
-
-
-<!-- DS 1 -->
-<div class="workCard stackCard" data-type="design-system">
-
-<div class="cardHeader">
-<h3>Nome do Componente</h3>
-<span class="tag">Design System</span>
-</div>
-
-<div class="cardMedia">
-<img src="img/component3.png">
-</div>
-
-<p class="cardDesc">
-Design system do app X.
-</p>
-
-<a class="btnProject">Ver Componente</a>
-
-</div>
+                </article>
 
 
 
-</div>
+                <!-- CARD -->
 
-</div>
+                <article class="projectCard">
 
-<div class="scrollIndicator scrollUp">
+                    <div class="projectImage">
 
-  <a href="#projetos" class="circle">
-    <img src="img/seta.png" class="arrow arrowUp">
-  </a>
+                        <img src="img/proj2.png" alt="Projeto">
 
-</div>
+                    </div>
+
+                    <div class="projectInfo">
+
+                        <h3>Nome do Projeto</h3>
+
+                        <p>
+                            Aplicativo de gerenciamento de finanças.
+                        </p>
+
+                        <a href="#" class="projectButton">
+                            Ver Projeto
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- CARD -->
+
+                <article class="projectCard">
+
+                    <div class="projectImage">
+
+                        <img src="img/proj3.png" alt="Projeto">
+
+                    </div>
+
+                    <div class="projectInfo">
+
+                        <h3>Nome do Projeto</h3>
+
+                        <p>
+                            Aplicativo de gerenciamento de finanças.
+                        </p>
+
+                        <a href="#" class="projectButton">
+                            Ver Projeto
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- CARD -->
+
+                <article class="projectCard">
+
+                    <div class="projectImage">
+
+                        <img src="img/proj4.png" alt="Projeto">
+
+                    </div>
+
+                    <div class="projectInfo">
+
+                        <h3>Nome do Projeto</h3>
+
+                        <p>
+                            Aplicativo de gerenciamento de finanças.
+                        </p>
+
+                        <a href="#" class="projectButton">
+                            Ver Projeto
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- CARD -->
+
+                <article class="projectCard">
+
+                    <div class="projectImage">
+
+                        <img src="img/proj5.png" alt="Projeto">
+
+                    </div>
+
+                    <div class="projectInfo">
+
+                        <h3>Nome do Projeto</h3>
+
+                        <p>
+                            Aplicativo de gerenciamento de finanças.
+                        </p>
+
+                        <a href="#" class="projectButton">
+                            Ver Projeto
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
 
 
-<section id="sobre" class="section"></section>
-<section id="contato" class="section"></section>
+
+<!-- ================= CONTATO ================= -->
+
+<section id="contato">
+
+    <div class="container">
+
+        <div class="contactContent">
+
+            <div class="contactText">
+
+                <p>
+                    Gostou do que viu?
+                </p>
+
+                <h2>
+                    Vamos conversar.
+                </h2>
+
+            </div>
+
+
+            <div class="contactIcons">
+
+
+                <a href="https://www.linkedin.com/in/maria-eduarda-barbosa-santos-6191b7236/" target="_blank">
+
+                    <img src="img/iconLinked.png" alt="LinkedIn">
+
+                    <span>
+                        LinkedIn
+                    </span>
+
+                </a>
+
+
+
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=m4dud01@gmail.com" target="_blank">
+
+                    <img src="img/iconGmail.png" alt="Gmail">
+
+                    <span>
+                        Gmail
+                    </span>
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+© 2026 Maria Eduarda. Todos os direitos reservados.
+
+</footer>
+
+<!-- ================= BOTAO VOLTAR ================= -->
+
+<button id="backToTop" class="backToTop" aria-label="Voltar ao topo">
+
+    <div class="scrollButton">
+
+        <img src="img/seta.png" alt="Voltar ao topo">
+
+    </div>
+
+</button>
 
 
 <script src="js/script.js"></script>
 
 </body>
+
 </html>
