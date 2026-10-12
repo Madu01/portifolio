@@ -25,7 +25,7 @@ VARIÁVEIS
 :root{
 
 
-    --amarelo:#FBFF00;
+    --amarelo:#ffff66;
     --preto:#181818;
     --cinza:#5D5D5D;
     --branco:#FFFFFF;
@@ -82,8 +82,8 @@ section{
 
     position:relative;
 
-    padding-top:var(--padding-section);
-    padding-bottom:var(--padding-section);
+    padding-top:var(--section-padding);
+    padding-bottom:var(--section-padding);
 
     overflow:hidden;
 
@@ -128,11 +128,12 @@ HEADER
 
     border-radius:18px;
 
-    background:rgba(255,255,255,.55);
+    background:rgba(255, 255, 255, 0.861);
 
-    backdrop-filter:blur(16px);
+    /*backdrop-filter:blur(16px);
 
-    -webkit-backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);*/
+    
 
     border:1px solid rgba(255,255,255,.45);
 
@@ -430,7 +431,6 @@ INTRODUÇÃO
     min-height:90vh;
 
     background-image:url("../img/fundoIntro.png");
-
     background-size:cover;
 
     background-position:center;
@@ -450,6 +450,7 @@ INTRODUÇÃO
     z-index:1;
 
 }
+
 
 #intro .container{
 
@@ -1556,4 +1557,9 @@ BOTÃO VOLTAR AO TOPO
 
     width:18px;
 
+}
+
+/* TESTE DE DESEMPENHO */
+*{
+    box-shadow:none !important;
 }
